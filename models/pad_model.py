@@ -14,7 +14,6 @@ def PA_Detector():
     PA_Detector pre-trained by imagenet (resnet18)
     """
     model_dict = net.state_dict()
-    logger.info("load imagenet model path:{}".format('./pretrained_model/resnet18-5c106cde.pth'))
     pretrained_dict = torch.load('./pretrained_model/resnet18-5c106cde.pth')
     pretrained_dict = {k: v for k, v in pretrained_dict.items() if k in model_dict}
     model_dict.update(pretrained_dict)
@@ -28,7 +27,6 @@ def Face_Related_Work(downstream):
         net = Face_Recognition()
     	model_path = './pretrained_model/R18_MS1MV3_backbone.pth'
         model_dict = net.state_dict()
-        logger.info("load imagenet model path:{}".format(model_path))
         pretrained_dict = torch.load(model_path)
         pretrained_dict = {k: v for k, v in pretrained_dict.items() if k in model_dict}
         model_dict.update(pretrained_dict)
@@ -37,7 +35,6 @@ def Face_Related_Work(downstream):
         net = Face_Expression()
     	model_path = './pretrained_model/ijba_res18_naive.pth.tar'
         model_dict = net.state_dict()
-        logger.info("load imagenet model path:{}".format(model_path))
         pretrained_dict = torch.load(model_path)
         pretrained_dict = {k: v for k, v in pretrained_dict.items() if k in model_dict}
         model_dict.update(pretrained_dict)
@@ -46,7 +43,6 @@ def Face_Related_Work(downstream):
         net = Face_Attribute_D()
         model_path = './pretrained_model/celeba-128x128-5attrs/200000-D.ckpt'
         model_dict = net.state_dict()
-        logger.info("load imagenet model path:{}".format(model_path))
         pretrained_dict = torch.load(model_path)
         pretrained_dict = {k: v for k, v in pretrained_dict.items() if k in model_dict}
         model_dict.update(pretrained_dict)
@@ -76,6 +72,6 @@ def Cross_Modal_Adapter(graph_type,batch_size):
                         dtype=np.float32)
     adj = adj + adj.T.multiply(adj.T > adj) - adj.multiply(adj.T > adj)
     adj = normalize_adj(adj + sp.eye(adj.shape[0]))
-    adj = torch.tensor(np.array(adj.todense()),dtype=torch.float32, requires_grad=True,device=torch.device('cuda:'))
+    adj = torch.tensor(np.array(adj.todense()),dtype=torch.float32, requires_grad=True,device=torch.device('cuda'))
     net = GAT(batch_size= batch_size, adj=adj)
     return net

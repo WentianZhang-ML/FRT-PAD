@@ -2,8 +2,8 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 from torchvision.models.resnet import ResNet, BasicBlock
-from layers import IBasicBlock, ResidualBlock
-from layers import GraphAttentionLayer
+from models.layers import IBasicBlock, ResidualBlock
+from models.layers import GraphAttentionLayer
 
 class Baseline(nn.Module):
     """

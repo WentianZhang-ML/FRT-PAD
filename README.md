@@ -42,10 +42,11 @@ The TOD face PAD method is trained through three steps:
  
      TOD method consists of CNN-based PA Detector, Face-Related Tasks and Cross-Modal Adapter. For **CNN-based PA Detector** (i.e. baseline), the pre-trained model is carried on ImageNet, and you can download the weights from [resnet18](https://s3.amazonaws.com/pytorch/models/resnet18-5c106cde.pth). For Face-Related Tasks, we applied three different models. 
      
- * * In **Face Recognition model**, we use a Pre-trained ResNet-18, and you can download the weights from [ms1mv3_arcface_r18_fp16/backbone](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch)
-     
- * * In **Face Expression Recognition model**, we also use a pre-trained ResNet-18, and you can download the weights from [SCN](https://github.com/kaiwang960112/Self-Cure-Network)
- * * In **Face Attribute Editing model**, we only use its Discriminator, which can be downloaded from [pretrained-celeba-128x128](https://github.com/yunjey/stargan)
+ > In **Face Recognition model**, we use a Pre-trained ResNet-18, and you can download the weights from [ms1mv3_arcface_r18_fp16/backbone](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch)
+ >   
+ > In **Face Expression Recognition model**, we also use a pre-trained ResNet-18, and you can download the weights from [SCN](https://github.com/kaiwang960112/Self-Cure-Network)
+ >
+ > In **Face Attribute Editing model**, we only use its Discriminator, which can be downloaded from [pretrained-celeba-128x128](https://github.com/yunjey/stargan)
      
  *   Training model
      ```

@@ -1,13 +1,12 @@
 # -*- coding: utf-8 -*-
 import sys
-sys.path.append('../')
 import torch
 import torch.nn as nn
 import numpy as np
 import scipy.sparse as sp
 import argparse
-from networks import Face_Recognition, Face_Expression, Face_Attribute_D
-from networks import Baseline, GAT
+from models.networks import Face_Recognition, Face_Expression, Face_Attribute_D
+from models.networks import Baseline, GAT
 
 def PA_Detector():
     net = Baseline()
@@ -63,7 +62,7 @@ def normalize_adj(mx):
     r_mat_inv_sqrt = sp.diags(r_inv_sqrt)
     return mx.dot(r_mat_inv_sqrt).transpose().dot(r_mat_inv_sqrt)
 
-def Cross_Modal_Adapter(graph_type):
+def Cross_Modal_Adapter(graph_type,batch_size):
 
     """
     Two Graph Attention Networks
@@ -77,6 +76,6 @@ def Cross_Modal_Adapter(graph_type):
                         dtype=np.float32)
     adj = adj + adj.T.multiply(adj.T > adj) - adj.multiply(adj.T > adj)
     adj = normalize_adj(adj + sp.eye(adj.shape[0]))
-    adj = torch.tensor(np.array(adj.todense()),dtype=torch.float32, requires_grad=True,device=torch.device('cuda:'+args.device))
-    net = GAT(batch_size= args.batch_size, adj=adj)
+    adj = torch.tensor(np.array(adj.todense()),dtype=torch.float32, requires_grad=True,device=torch.device('cuda:'))
+    net = GAT(batch_size= batch_size, adj=adj)
     return net

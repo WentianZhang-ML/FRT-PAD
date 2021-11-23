@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 import numpy as np
 from tqdm import *
-from face.utils.utils import AverageMeter
+from utils.utils import AverageMeter
 from torch.autograd import Variable
 import torch.nn.functional as F
 import math

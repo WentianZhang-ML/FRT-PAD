@@ -28,23 +28,24 @@ args = parser.parse_args()
 
 log_dir = config.root + 'face_log/'+ args.downstream+'/'
 logger = set_log(log_dir, args.train_data, args.test_data)
-logger.info("Log path:" + log_path)
+logger.info("Log path:" + log_dir)
 logger.info("Training Protocol")
 logger.info("Epoch Total number:{}".format(config.Epoch_num))
 logger.info("Batch Size is {:^.2f}".format(config.batch_size))
 logger.info("Shuffle Data for Training is {}".format(config.shuffle_train))
-logger.info("Training set is {}".format(config.dataset(args.train_data)))
-logger.info("Test set is {}".format(config.dataset(args.test_data)))
-logger.info("Face related work is {}".format(config.face_related_work(args.downstream)))
-logger.info("Graph type is {}".format(config.graph(args.graph_type)))
+logger.info("Training set is {}".format(config.dataset[args.train_data]))
+logger.info("Test set is {}".format(config.dataset[args.test_data]))
+logger.info("Face related work is {}".format(config.face_related_work[args.downstream]))
+logger.info("Graph type is {}".format(config.graph[args.graph_type]))
 logger.info("savedir:{}".format(config.savedir))
 
 def load_net_datasets():
     net_pad = PA_Detector()
-    net_downstream = Face_Related_Work(config.face_related_work(args.downstream))
-    net_adapter = Cross_Modal_Adapter(config.graph(args.graph_type))
+    net_downstream = Face_Related_Work(config.face_related_work[args.downstream])
+    net_adapter = Cross_Modal_Adapter(config.graph[args.graph_type], config.batch_size)
     net = PAD_Classifier(net_pad,net_downstream,net_adapter,args.downstream)
-    train_data_loader, test_data_loader = get_dataset('./labels',config.dataset(args.train_data), config.sample_frame, config.dataset(args.test_data), config.sample_frame, config.batch_size)
+    train_data_loader, test_data_loader = get_dataset('./labels',config.dataset[args.train_data], config.sample_frame, config.dataset[pargs.test_data], config.sample_frame, config.batch_size)
+    net.cuda()
     return net, train_data_loader, test_data_loader
 
 def train():

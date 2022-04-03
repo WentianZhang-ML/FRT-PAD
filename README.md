@@ -50,7 +50,7 @@ The proposed FRT-PAD method is trained through three steps:
  >
  > In **Face Attribute Editing model**, we only use its Discriminator, which can be downloaded from [pretrained-celeba-128x128](https://github.com/yunjey/stargan).
      
- *   Training model
+ *   Training and testing model
      ```
      python train_main.py \
      --train_data [om/ci]

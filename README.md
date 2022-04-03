@@ -1,7 +1,7 @@
 # FRT-PAD
 This is an official pytorch implementation of 'Effective Presentation Attack Detection Driven by Face Related Task', which is under reviewed in ECCV 2022. 
 
-## Face Presentation Attack Detection using Taskonomy Feature
+## Effective Presentation Attack Detection Driven by Face Related Task
 ![Method](./src/method.png)
 
 * [Paper Link (arxiv)](https://arxiv.org/abs/)

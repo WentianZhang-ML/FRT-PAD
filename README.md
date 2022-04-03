@@ -1,5 +1,5 @@
-# TOD-PAD
-This is an official pytorch implementation of 'Face Presentation Attack Detection using Taskonomy Feature', which is under reviewed in CVPR 2022. 
+# FRT-PAD
+This is an official pytorch implementation of 'Effective Presentation Attack Detection Driven by Face Related Task', which is under reviewed in ECCV 2022. 
 
 ## Face Presentation Attack Detection using Taskonomy Feature
 ![Method](./src/method.png)
@@ -26,7 +26,7 @@ The proposed method is evaluated on four publicly-available datasets, i.e.
 
 
 ## Usage
-The TOD face PAD method is trained through three steps:
+The proposed FRT-PAD method is trained through three steps:
 *   Data Preparation
     
     Generate the image list:
@@ -40,7 +40,7 @@ The TOD face PAD method is trained through three steps:
     
  *   Pre-trained Model Preparation
  
-     TOD method consists of CNN-based PA Detector, Face-Related Tasks and Cross-Modal Adapter. For **CNN-based PA Detector** (i.e. baseline), the pre-trained model is carried on ImageNet, and you can download the weights from [resnet18](https://s3.amazonaws.com/pytorch/models/resnet18-5c106cde.pth). For **Face-Related Tasks**, we applied three different models. 
+     FRT-PAD method consists of CNN-based PA Detector, Face-Related Tasks and Cross-Modal Adapter. For **CNN-based PA Detector** (i.e. baseline), the pre-trained model is carried on ImageNet, and you can download the weights from [resnet18](https://s3.amazonaws.com/pytorch/models/resnet18-5c106cde.pth). For **Face-Related Tasks**, we applied three different models. 
      
  > In **Face Recognition model**, we use a Pre-trained ResNet-18, and you can download the weights from [ms1mv3_arcface_r18_fp16/backbone](https://github.com/deepinsight/insightface/tree/master/recognition/arcface_torch).
  >   

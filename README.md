@@ -37,6 +37,7 @@ The proposed FRT-PAD method is trained through three steps:
     
     For example, 
     `python data_find.py --data_path ['msu_path', 'casia_path', 'idiap_path', 'oulu_path']`
+    
     And then you can get four lists containing images and corresponding labels in './label/' to establish cross-dataset. 
     
  *   Pre-trained Model Preparation

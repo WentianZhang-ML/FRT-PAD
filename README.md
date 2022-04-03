@@ -57,7 +57,6 @@ The proposed FRT-PAD method is trained through three steps:
      --test_data [ci/om]
      --downstream [FE/FR/FA]
      --graph_type [direct/dense]
-     
      ```
  
      

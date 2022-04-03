@@ -21,8 +21,7 @@ class Baseline(nn.Module):
         self.layer3 = model_resnet.layer3
         self.layer4 = model_resnet.layer4
         self.avgpool = nn.AdaptiveAvgPool2d(output_size=1)
-
-
+        
     def forward(self, input):
         feature = self.conv1(input)
         feature = self.bn1(feature)
@@ -34,7 +33,6 @@ class Baseline(nn.Module):
         feature = self.layer4(feature)
         out = self.avgpool(feature) #[,512,1,1]
         out = out.view(out.size(0), -1) #[,512]
-
         return out
 
 class Face_Recognition(nn.Module):
@@ -142,13 +140,8 @@ class Face_Expression(nn.Module):
         self.layer1 = nn.Sequential(*list(resnet.children())[-6:-5])
         self.layer2 = nn.Sequential(*list(resnet.children())[-5:-4])
         self.layer3 = nn.Sequential(*list(resnet.children())[-4:-3])
-        self.layer4 = nn.Sequential(*list(resnet.children())[-3:-2]) # before avgpool
-        self.avgpool = list(resnet.children())[-2] #  avgpool 512,512
-
-        # fc_in_dim = list(resnet.children())[-1].in_features # original fc layer's in dimention 512
-   
-        # self.fc = nn.Linear(fc_in_dim, num_classes) # new fc layer 512x7
-        # self.alpha = nn.Sequential(nn.Linear(fc_in_dim, 1),nn.Sigmoid())
+        self.layer4 = nn.Sequential(*list(resnet.children())[-3:-2]) 
+        self.avgpool = list(resnet.children())[-2] 
 
     def forward(self, x):
         x = self.features(x)
@@ -157,12 +150,9 @@ class Face_Expression(nn.Module):
         feature_3 = self.layer3(feature_2)
         feature_4 = self.layer4(feature_3)
         out = self.avgpool(feature_4)
-
         out = out.view(out.size(0), -1)
-        # attention_weights = self.alpha(x)
-        # out = attention_weights * self.fc(x)
-
         return  (feature_1, feature_2, feature_3, feature_4, out)
+    
 class Face_Attribute_D(nn.Module):
     """Discriminator network with PatchGAN."""
     def __init__(self, image_size=128, conv_dim=64, c_dim=5, repeat_num=6):
@@ -186,9 +176,6 @@ class Face_Attribute_D(nn.Module):
         self.fc1 = nn.Linear(1024*4*4, 512) # 1024*4*4 
         self.fc2 = nn.Linear(2048*2*2, 512) # 2048*2*2
         self.fc3 = nn.Linear(1024, 512)
-        # kernel_size = int(image_size / np.power(2, repeat_num))
-        # self.conv1 = nn.Conv2d(curr_dim, 1, kernel_size=3, stride=1, padding=1, bias=False)
-        # self.conv2 = nn.Conv2d(curr_dim, c_dim, kernel_size=kernel_size, bias=False)
         
     def forward(self, x):
         feature_1 = self.main1(x)
@@ -202,41 +189,11 @@ class Face_Attribute_D(nn.Module):
         f6 = feature_6.view(feature_6.size(0), -1)
         out = torch.cat([self.fc1(f5), self.fc2(f6)], 1)
         out = self.fc3(out)
-        # out_src = self.conv1(h)
-        # out_cls = self.conv2(h)
-        # return out_src, out_cls.view(out_cls.size(0), out_cls.size(1))
         return (feature_1,feature_2,feature_3,feature_4,out)
 
 class GAT(nn.Module):
     def __init__(self, adj, batch_size, nfeat=512, nhid=512, nclass=512, dropout=0.6, alpha=0.2, nheads=2):
-        """
-        Dense version of GAT.
-        nfeat:  feature dimension
-        nhid:   Number of hidden units
-        nclass: class number
-        dropout: Dropout rate (1 - keep probability)
-        alpha: Alpha for the leaky_relu
-        nheads: Number of head attentions
-        """
         super(GAT, self).__init__()
-
-
-        """
-        # Full connection 
-        self.fc1 = nn.Linear(64*56*56, nclass)
-        self.fc2 = nn.Linear(128*28*28, nclass)
-        self.fc3 = nn.Linear(256*14*14, nclass)
-        self.fc4 = nn.Linear(512*7*7, nclass)
-
-        self.fc1.weight.data.normal_(0, 0.01)
-        self.fc1.bias.data.fill_(0.0)
-        self.fc2.weight.data.normal_(0, 0.01)
-        self.fc2.bias.data.fill_(0.0)
-        self.fc3.weight.data.normal_(0, 0.01)
-        self.fc3.bias.data.fill_(0.0)
-        self.fc4.weight.data.normal_(0, 0.01)
-        self.fc4.bias.data.fill_(0.0)
-        """
 
         # Convolution extraction
         self.conv1 = nn.Sequential(
@@ -298,28 +255,11 @@ class GAT(nn.Module):
         # self.fc = nn.Linear(nclass*5, nclass)
 
     def forward(self, x):
-
         f1 = self.conv1(x[0])
         f2 = self.conv2(x[1])
         f3 = self.conv3(x[2])
         f4 = self.conv4(x[3])
         f5 = x[4]
-
-        """
-        # Full connection
-        f1 = x[0].view(x[0].size(0), -1)   # (batch_size,xxxx)
-        f2 = x[1].view(x[1].size(0), -1)
-        f3 = x[2].view(x[2].size(0), -1)
-        f4 = x[3].view(x[3].size(0), -1)
-        f5 = x[4]
-
-        f1 = self.fc1(f1)  # (batch_size,512)
-        f2 = self.fc2(f2)
-        f3 = self.fc3(f3)
-        f4 = self.fc4(f4)
-        """
-
-
         f1 = torch.reshape(f1,[1,f1.shape[0]*f1.shape[1]])
         f2 = torch.reshape(f2,[1,f2.shape[0]*f2.shape[1]])
         f3 = torch.reshape(f3,[1,f3.shape[0]*f3.shape[1]])
@@ -349,7 +289,6 @@ class PAD_Classifier(nn.Module):
         super(PAD_detector, self).__init__()
         self.downstream_name = downstream_name
         self.classifier_layer = nn.Linear(1024, 2)
-        # nn.init.xavier_normal(self.classifier_layer.weight)
         self.classifier_layer.weight.data.normal_(0, 0.01)
         self.classifier_layer.bias.data.fill_(0.0)
         self.dropout = nn.Dropout(0.5)
@@ -357,8 +296,6 @@ class PAD_Classifier(nn.Module):
         self.Extractor = PAE_net
         self.downstream = downstream_net
         self.targetnet = target_net
-        # for p in self.downstream.parameters():
-        #     p.requires_grad= False
 
     def forward(self, x ):
         PAE_feature = self.Extractor(x)

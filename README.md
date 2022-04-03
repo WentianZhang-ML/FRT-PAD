@@ -4,7 +4,7 @@ This is an official pytorch implementation of 'Effective Presentation Attack Det
 ## Face Presentation Attack Detection using Taskonomy Feature
 ![Method](./src/method.png)
 
-* [Paper Link (arxiv)](https://arxiv.org/abs/2111.11046)
+* [Paper Link (arxiv)](https://arxiv.org/abs/)
 
 ## Requirements
 

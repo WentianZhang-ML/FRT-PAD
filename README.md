@@ -4,7 +4,7 @@ This is an official pytorch implementation of 'Effective Presentation Attack Det
 ## Effective Presentation Attack Detection Driven by Face Related Task
 ![Method](./src/method.png)
 
-* [Paper Link (arxiv)](https://arxiv.org/abs/)
+* [Paper Link (arxiv)](https://arxiv.org/pdf/2111.11046.pdf)
 
 ## Requirements
 

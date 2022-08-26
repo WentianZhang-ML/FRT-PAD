@@ -1,5 +1,5 @@
 # FRT-PAD
-This is an official pytorch implementation of 'Effective Presentation Attack Detection Driven by Face Related Task'. (Accepted by ECCV 2022)
+This is an official pytorch implementation of 'Effective Presentation Attack Detection Driven by Face Related Task'.  (Accepted by ECCV 2022)
 
 ## Effective Presentation Attack Detection Driven by Face Related Task
 ![Method](./src/method.png)

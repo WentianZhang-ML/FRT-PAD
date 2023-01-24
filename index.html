@@ -1,0 +1,258 @@
+<!DOCTYPE html
+    PUBLIC "-//W3C//DTD XHTML 1.0 transitional//EN" "http://www.w3.org/tr/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="keywords" content="FRT-PAD">
+    <meta name="description" content="FRT-PAD">
+    <!--<link href="CSS/bootstrap.min.css" media="all" rel="stylesheet">-->
+    <link href="./files/main.css" media="all" rel="stylesheet">
+    <title>Effective Presentation Attack Detection Driven by Face Related Task</title>
+    <style>
+        font.italic {
+            font-style: italic;
+        }
+        
+        .isDisabled {
+            pointer-events: none;
+            cursor: default;
+            text-decoration: none;
+            color: black;
+        }
+        
+        .lightfont {
+            font-size: medium;
+            font-weight: normal;
+        }
+    </style>
+</head>
+
+
+
+<body>
+
+    <section id="headinformation" class="sectionwhite">
+        <table id="tbInformation" width="100%">
+            <tbody>
+                <tr>
+                    <td align="center">
+                        <h1>Effective Presentation Attack Detection Driven by Face Related Task </h1>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <a href="https://wentianzhang-ml.github.io" target="_blank">Wentian Zhang<sup>1,&#8224;</sup></a>&nbsp;&nbsp;&nbsp;
+                        <a href="https://haozheliu-st.github.io" target="_blank">Haozhe Liu<sup>1,2,&#8224;</sup></a> &nbsp;&nbsp;&nbsp; 
+                        <a href="https://scholar.google.com/citations?user=45uLWocAAAAJ" target="_blank">Feng Liu<sup>1</sup></a> &nbsp;&nbsp;&nbsp; 
+                        <a href="https://scholar.google.com/citations?user=OIYIrmIAAAAJ" target="_blank">Raghavendra Ramachandra<sup>3</sup></a> &nbsp;&nbsp;&nbsp;
+                        <a href="https://scholar.google.com/citations?user=qsopcXIAAAAJ" target="_blank">Christoph Busch<sup>3</sup></a> &nbsp;&nbsp;&nbsp;
+                        <p align="center">
+                            <small>
+                                <sup>1</sup> Computer Vision Institute, Shenzhen University<br />
+                                <sup>2</sup> AI Initiative, King Abdullah University of Science and Technology<br />
+                                <sup>3</sup> Norwegian Biometrics Laboratory (NBL), Norwegian University of Science and Technology<br />
+                            </small>
+                        </p>
+
+                    </td>
+
+
+                </tr>
+                <tr>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <img src="./files/frt-pad.png" border="12" height="380">
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <section id="Abstract" class="sectionwhite">
+        <h3> Abstract </h3>
+        <font size="normal">
+            <table cellpadding="3" cellspacing="0" width="100%" class="sectionwhite">
+                <tbody>
+                    <tr>
+                        <td align="justify">
+                            &nbsp;&nbsp;&nbsp;&nbsp;  The robustness and generalization ability of Presentation Attack Detection (PAD) methods is critical to ensure the security of Face Recognition Systems (FRSs). However, in a real scenario, Presentation Attacks (PAs) are various and it is hard to predict the Presentation Attack Instrument (PAI) species that will be used by the attacker. Existing PAD methods are highly dependent on the limited training set and cannot generalize well to unknown PAI species. Unlike this specific PAD task, other face related tasks trained by huge amount of real faces (e.g. face recognition and attribute editing) can be effectively adopted into different application scenarios. Inspired by this, we propose to trade position of PAD and face related work in a face system and apply the free acquired prior knowledge from face related tasks to solve face PAD, so as to improve the generalization ability in detecting PAs. The proposed method, first introduces task specific features from other face related task, then, we design a Cross-Modal Adapter using a Graph Attention Network (GAT) to re-map such features to adapt to PAD task. Finally, face PAD is achieved by using the hierarchical features from a CNN-based PA detector and the re-mapped features. The experimental results show that the proposed method can achieve significant improvements in the complicated and hybrid datasets, when compared with the state-of-the-art methods. In particular, when training on the datasets OULU-NPU, CASIA-FASD, and Idiap Replay-Attack, we obtain HTER (Half Total Error Rate) of 5.48% for the testing dataset MSU-MFSD, outperforming the baseline by 7.39%. 
+                            </br>
+                           
+                            </p>
+                            </b>
+                            </br>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </font>
+    </section>
+
+    <section id="Paper" class="sectionwhite">
+        <h3> <a href="https://link.springer.com/chapter/10.1007/978-3-031-20065-6_24" target="_blank">
+                            Paper </a> </h3>
+            
+        <font size="normal">
+            <table cellpadding=0 cellspacing=0 width="100%" class="sectionwhite">
+                <tr>
+                    <td align="left">
+                        <!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a ="https://arxiv.org/abs/1910.06278"> arxiv </a> -->
+                        <a href="https://link.springer.com/chapter/10.1007/978-3-031-20065-6_24" target="_blank">
+                            <img src="papers/FRT-PAD-page-0.png" style="border:1px solid black" width="15.5%">
+                        </a>
+                        <a href="https://link.springer.com/chapter/10.1007/978-3-031-20065-6_24" target="_blank">
+                            <img src="papers/FRT-PAD-page-2.png" style="border:1px solid black" width="15.5%">
+                        </a>
+                        <a href="https://link.springer.com/chapter/10.1007/978-3-031-20065-6_24" target="_blank">
+                            <img src="papers/FRT-PAD-page-5.png" style="border:1px solid black" width="15.5%">
+                        </a>
+                        <a href="https://link.springer.com/chapter/10.1007/978-3-031-20065-6_24" target="_blank">
+                            <img src="papers/FRT-PAD-page-6.png" style="border:1px solid black" width="15.5%">
+                        </a>
+                        <a href="https://link.springer.com/chapter/10.1007/978-3-031-20065-6_24" target="_blank">
+                            <img src="papers/FRT-PAD-page-10.png" style="border:1px solid black" width="15.5%">
+                        </a>
+                        <a href="https://link.springer.com/chapter/10.1007/978-3-031-20065-6_24" target="_blank">
+                            <img src="papers/FRT-PAD-page-11.png" style="border:1px solid black" width="15.5%">
+                        </a>
+                    </td>
+                </tr>
+        
+                <tr>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td></td>
+                </tr>
+            </table>
+        </font>
+    </section>
+
+    <section id="Appendix" class="sectionwhite">
+        <h3> <a href="papers/appendix.pdf" target="_blank"> Appendix </a> <h3>
+    </section>
+
+    <section id="Code" class="sectionwhite">
+        <h3> <a href="https://github.com/WentianZhang-ML/FRT-PAD" target="_blank"> Code </a> <h3>
+    </section>
+            
+
+    <hr />
+
+    <section id="Experimental Results" class="sectionwhite">
+        <tr>
+            <h2 style="text-align: center;">Experimental Results</h2>
+   
+        </tr>
+
+
+        <h3>Performance of proposed method with different face related tasks</h3>
+        <table cellpadding="3" cellspacing="0" width="100%" class="sectionwhite">
+            <tbody>
+            	<tr>
+                    <td align="center">
+                        <img src="./vis/table1.png" border="12" height="310">
+                    </td>
+                </tr>
+                <tr>
+        </table>
+
+        <h3>Comparison with SOTA methods </h3>
+        <table cellpadding="3" cellspacing="0" width="100%" class="sectionwhite">
+            <tbody>
+            	<tr>
+                    <td align="center">
+                        <img src="./vis/table4.png" border="12" height="400">
+                    </td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <img src="./vis/table5.png" border="12" height="300">
+                    </td>
+                </tr>
+                <tr>
+        </table>
+            
+        <h3>Visualization </h3>
+        <table cellpadding="3" cellspacing="0" width="100%" class="sectionwhite">
+            <tbody>
+            	<tr>
+                    <td align="center">
+                        <img src="./vis/visual.png" border="12" height="260">
+                    </td>
+                </tr>
+                <tr>
+        </table>
+    </section>
+
+    <section id="Citation" class="sectionwhite">
+        <h3> Citation</h3>
+    </section>
+    <section id="Citation" width="60%" class="sectiongray">
+        <table cellpadding=3 cellspacing=0 width="60%" class="sectiongray">
+            <tr>
+                <td>
+                    <pre><code>
+@inproceedings{zhang2022effective,
+  title={Effective Presentation Attack Detection Driven by Face Related Task},
+  author={Zhang, Wentian and Liu, Haozhe and Liu, Feng and Ramachandra, Raghavendra and Busch, Christoph},
+  booktitle={European Conference on Computer Vision},
+  pages={408--423},
+  year={2022},
+  organization={Springer}
+}
+            </td></tr>
+            </code></pre>
+        </table>
+    </section>
+ 
+
+
+    <br>访问次数:
+    <a href="https://www.easycounter.com/">
+<img src="https://www.easycounter.com/counter.php?frtpad"
+border="0" alt="stats counter"></a>
+    <p></p>
+    <div class="page-header"> </div>
+    <div class="container span11">
+        <a href="https://clustrmaps.com/site/1bsgs" title="Visit tracker"><img src="//www.clustrmaps.com/map_v2.png?d=ZZZ6lxPTm8UOrQB6-vWhGaRAwmXB8KkaK2HWRmWK-zA&cl=ffffff"></a>
+    </div>
+
+    </div>
+    <div class="page-header">
+    </div>
+
+</body>
+
+</html>

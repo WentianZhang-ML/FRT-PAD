@@ -1,0 +1,85 @@
+html {
+	background-color: rgb(248, 248, 248);
+}
+> body {
+> 	margin: 30px auto; padding: 10px 50px 30px; text-align: left; color: rgb(0, 0, 0); font-family: helvetica, ariel, "sans serif"; max-width: 960px; background-color: rgb(255, 255, 255);
+> }
+
+body {
+ margin: 10px auto; 
+ padding: 20px; 50px; 30px; 
+ text-align: left; color: rgb(0, 0, 0); 
+ line-height:22px;
+ font-family: helvetica, ariel, "sans serif"; 
+ max-width: 960px; background-color: rgb(255, 255, 255);
+ }
+
+
+table {
+	background-color: rgb(255, 255, 255);
+}
+a {
+	color: rgb(31, 130, 169); cursor: pointer;
+}
+a{ text-decoration:none} 
+a:link {
+	color: rgb(31, 130, 169); cursor: pointer;
+}
+a:visited {
+	color: rgb(31, 130, 169); cursor: pointer;
+}
+a:hover {
+	/* background: inherit; color: rgb(0, 102, 153); text-decoration: underline; */
+	background: inherit; color: rgb(0, 102, 153); text-decoration: none;
+}
+
+
+img {
+	border: 0px currentColor; border-image: none;
+}
+h1 {
+	font-family: helvetica, ariel, "sans serif";
+}
+h2 {
+	font-family: helvetica, ariel, "sans serif";
+}
+h3 {
+	font-family: helvetica, ariel, "sans serif";
+}
+.head3{font-family: helvetica, ariel, "sans serif";}
+h4 {
+	font-family: helvetica, ariel, "sans serif";
+}
+p {
+	
+}
+.papericon {
+	border-radius: 8px; box-shadow: 3px 3px 6px #888; -moz-box-shadow: 3px 3px 6px #888; -webkit-box-shadow: 3px 3px 6px #888;
+}
+.portrait {
+	border-radius: 8px;
+}
+
+.tdpub0{text-align: right; padding-left: 0px;
+padding-right: 0px;width: 25px;
+vertical-align: top;}
+
+.pubindex{text-align: right; padding-left: 0px;
+padding-right: 0px;
+vertical-align: top;}
+
+.pubtitle{font-weight: bold;}
+.pubbooktitle{font-style: italic;}
+.sectiongray{ background-color: rgb(247, 247, 247)}
+.sectionwhite{ background-color: rgb(254, 254, 254)}
+
+
+> .navbar-fixed-top {
+> 	position: fixed; top = -50px;
+> }
+> .navbar-default {
+> 	background-color: rgb(238, 238, 238);
+> }
+.navbarwidth {
+ 	max-width: 960px;
+ }

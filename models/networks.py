@@ -286,7 +286,7 @@ class GAT(nn.Module):
 
 class PAD_Classifier(nn.Module):
     def __init__(self, PAE_net, downstream_net, target_net,downstream_name='FR'):
-        super(PAD_detector, self).__init__()
+        super(PAD_Classifier, self).__init__()
         self.downstream_name = downstream_name
         self.classifier_layer = nn.Linear(1024, 2)
         self.classifier_layer.weight.data.normal_(0, 0.01)
